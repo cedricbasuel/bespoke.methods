@@ -1,0 +1,34 @@
+ts=proc.time()
+breffy = as.vector(aqqy[100:20000,1])
+
+refu = data.frame(matrix(nrow=length(breffy),ncol=2))
+names(refu) = c("Reference","Value")
+refu$Reference = breffy
+
+foreach(i = 1:length(breffy)) %dopar%  {
+  if(breffy[i] %in% aqqy[,1]){
+    refu$Value[i]= as.character(aqqy[which(aqqy$TokenPolicyNo==refu$Reference[i]),3])
+  }
+  else{
+    refu[i,2] = NA
+  }
+}
+proc.time() - ts
+
+####
+ts=proc.time()
+breffy = as.vector(aqqy[100:2000,1])
+
+refu = data.frame(matrix(nrow=length(breffy),ncol=2))
+names(refu) = c("Reference","Value")
+refu$Reference = breffy
+
+for(i in 1:length(breffy)) {
+  if(breffy[i] %in% aqqy[,1]){
+    refu$Value[i]= as.character(aqqy[which(aqqy$TokenPolicyNo==refu$Reference[i]),3])
+  }
+  else{
+    refu[i,2] = NA
+  }
+}
+proc.time() - ts
