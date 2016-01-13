@@ -42,7 +42,7 @@ loadnodesperarticle08 = array()
 for(i in 1:20){
 loadhtmlperarticle08[[i]] = html(newslinks08_list[i])
 loadnodesperarticle08[i] = loadhtmlperarticle08[[i]] %>% html_node("#story_bottom") %>% html_text()
-filename = paste(i,"article_08jan2016.txt")
+filename = paste(i,"article_08jan2016.txt",sep="_")
 write(loadnodesperarticle08[i],file=filename)
 }
 
