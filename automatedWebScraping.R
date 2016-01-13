@@ -18,12 +18,12 @@ newstitle08 = unlist(newstitle08)
 newstitle08
 newstitle08 = newstitle08[-c(21)]
 newstitle08
-newstitle08 = gsub(" ","",newstitle08)
-newstitle08
+#newstitle08 = gsub(" ","",newstitle08)
+#newstitle08
 #getting the links of the headlines scraped
 #we are only getting links found in the same html node the headlines were taken from
 newslinks08 = bworldjan08 %>% html_node("#landing_page td:nth-child(2)")
-newslinks08_list = as.vector(xpathSapply(htmlParse(newslinks08),"//a/@href"))
+newslinks08_list = as.vector(xpathSApply(htmlParse(newslinks08),"//a/@href"))
 newslinks08_list = as.vector(xpathSApply(htmlParse(newslinks08),"//a/@href"))
 newslinks08_list
 newslinks08_list = paste("http://www.bworldonline.com/",newslinks08_list,sep="")
