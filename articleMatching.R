@@ -49,10 +49,8 @@ for(j in 1:length(article_list)){
   articleString[[j]] = as.String(article_list[[j]])
   article_annotations[[j]] = annotate(articleString[[j]],pipeline)
   article_docs[[j]] = AnnotatedPlainTextDocument(articleString[j],article_annotations[[j]])
-  article_scores[j,2] = try(as.String(entities(article_docs[[j]],kind = "date")))
-  article_scores[j,3] = try(as.String(entities(article_docs[[j]],kind = "location")))
-  article_scores[j,4] = try(as.String(entities(article_docs[[j]],kind = "organization")))
-  
-  
-  
+  article_scores[j,4] = try(as.String(entities(article_docs[[j]],kind = "date")))
+  article_scores[j,5] = try(as.String(entities(article_docs[[j]],kind = "location")))
+  article_scores[j,6] = try(as.String(entities(article_docs[[j]],kind = "organization")))
 }
+write.csv(article_scores,"article_scores.csv")
