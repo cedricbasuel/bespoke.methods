@@ -15,3 +15,5 @@ binning = function(datatable,factor_column){
   }
   else(return("Column is not of type factor"))
 }
+
+##
