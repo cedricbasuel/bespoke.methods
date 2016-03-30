@@ -1,5 +1,6 @@
 binning = function(datatable,factor_column){
-  if(is.factor(factor_column)){
+  if(sum(c(NA,""," ") %in% factor_column)>0){print("An blank space or an NA occurs in the column. Deal with that first.")}
+  else(if(is.factor(factor_column)){
     addtnl_columns = length(unique(factor_column))
     if(addtnl_columns<20){
       factories = as.character(unique(factor_column))
@@ -11,9 +12,9 @@ binning = function(datatable,factor_column){
       }
       return(datatable)
     }
-    else(return("There's more than 20 factors. Capping could feel too dizzy."))
+    else(print("There's more than 20 factors. Capping could feel too dizzy."))
   }
-  else(return("Column is not of type factor"))
+  else(print("Column is not of type factor")))
 }
 
 ##
