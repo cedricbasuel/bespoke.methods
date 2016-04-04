@@ -1,5 +1,5 @@
 binning = function(datatable,factor_column){
-  if(sum(c(NA,""," ") %in% factor_column)>0){print("An blank space or an NA occurs in the column. Deal with that first.")}
+  if(sum(c(NA,""," ") %in% factor_column)>0){print("A blank space or an NA occurs in the column. Deal with that first.")}
   else(if(is.factor(factor_column)){
     addtnl_columns = length(unique(factor_column))
     if(addtnl_columns<20){
